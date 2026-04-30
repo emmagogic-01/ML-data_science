@@ -58,6 +58,7 @@ ObesityDataSet_raw_and_data_sinthetic.csv
 script_EmmaGogic.py
 report_EmmaGogic.pdf
 outputs/
+```
 
 ### 2. Retail Association Analysis and Wholesale Customer Clustering
 
@@ -142,3 +143,4 @@ Wholesale customers data.csv
 script_EmmaGogic.py
 report_EmmaGogic.pdf
 assignment2_outputs/
+```
