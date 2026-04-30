@@ -58,3 +58,87 @@ ObesityDataSet_raw_and_data_sinthetic.csv
 script_EmmaGogic.py
 report_EmmaGogic.pdf
 outputs/
+
+### 2. Retail Association Analysis and Wholesale Customer Clustering
+
+**Course:** CPS 844 - Data Mining  
+**Date:** Mar 2026  
+**Type:** Unsupervised learning, association-rule mining, and clustering  
+
+This project applies two unsupervised data mining techniques to business/customer datasets from the UCI Machine Learning Repository. The first part uses the **Online Retail** dataset to perform market-basket analysis and discover product co-purchase patterns. The second part uses the **Wholesale Customers** dataset to segment customers based on annual spending behavior.
+
+The project demonstrates how different unsupervised learning methods can answer different business questions:
+
+- **Association analysis:** Which products are frequently purchased together?
+- **Clustering analysis:** Which customers have similar spending patterns?
+
+#### Association Analysis
+
+For the Online Retail dataset, each invoice was treated as a customer basket and each product description was treated as an item. The data was cleaned by removing missing invoice/product values, excluding cancelled transactions, filtering invalid quantities and prices, standardizing product descriptions, and restricting the analysis to United Kingdom transactions for a cleaner basket structure.
+
+The project used the **FP-Growth algorithm** to mine frequent itemsets and generate association rules based on support, confidence, and lift.
+
+Key settings included:
+
+- Top 120 products by basket frequency
+- Minimum support: 0.02
+- Minimum confidence: 0.30
+- Minimum lift: 1.10
+- Maximum itemset length: 3
+
+The final analysis produced **309 frequent itemsets** and **345 association rules**. The strongest rules showed that customers often purchased coordinated product variations together, such as different CHARLOTTE BAG designs and REGENCY teacup-and-saucer variants.
+
+#### Clustering Analysis
+
+For the Wholesale Customers dataset, the project used six annual spending features:
+
+- Fresh
+- Milk
+- Grocery
+- Frozen
+- Detergents_Paper
+- Delicassen
+
+The `Region` and `Channel` columns were excluded from clustering so that customer groups could be discovered based only on purchasing behavior.
+
+Since the spending variables were highly skewed, the data was preprocessed using:
+
+- `log1p` transformation
+- Z-score standardization
+
+Two clustering methods were compared:
+
+- K-Means clustering
+- Agglomerative hierarchical clustering
+
+K-Means was evaluated for `k = 2` to `k = 8` using inertia and silhouette score. The best K-Means solution was **k = 2**, with a silhouette score of **0.2903**. Agglomerative clustering with two clusters achieved a slightly lower silhouette score of **0.2585**.
+
+The final clusters represented two broad customer segments:
+
+1. Customers with higher spending on **Fresh** and **Frozen** products
+2. Customers with higher spending on **Milk**, **Grocery**, and **Detergents_Paper**
+
+#### Key Skills Demonstrated
+
+- Unsupervised learning
+- Market-basket analysis
+- Association-rule mining
+- FP-Growth algorithm
+- Support, confidence, and lift interpretation
+- Customer segmentation
+- K-Means clustering
+- Agglomerative hierarchical clustering
+- Silhouette score and inertia analysis
+- PCA-based cluster visualization
+- Hierarchical clustering dendrograms
+- Data cleaning and preprocessing
+- Business interpretation of data mining results
+
+#### Main Files
+
+```text
+Online Retail.xlsx
+Wholesale customers data.csv
+script_EmmaGogic.py
+report_EmmaGogic.pdf
+assignment2_outputs/
